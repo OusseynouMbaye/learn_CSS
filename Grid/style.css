@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 150px;
+  grid-template-areas:
+    "a a a"
+    "b c c"
+    "d d e"
+    "f f f";
+}
+.bloc:nth-child(){
+    
+    grid-area: ;
+}
+.bloc:nth-child(){
+    grid-area: ;
+}
+.bloc:nth-child(){
+    grid-area: ;
+}
+.bloc:nth-child(){
+    grid-area: ;
+}
+.bloc:nth-child(){
+    grid-area: ;
+}
+.bloc:nth-child(){
+    grid-area: ;
+}
