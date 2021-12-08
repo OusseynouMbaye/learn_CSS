@@ -1,0 +1,299 @@
+:root {
+  --color1: teal;
+  --color2: #ffffff;
+  --color3: #000000;
+  --color4: #ffff00;
+  --color5: pink;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("./img/bg.jpg") center center repeat; /*fixed*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+/*********** Card **********/
+.card {
+  background: rgba(0, 0, 0, 0.432);
+  width: calc(100% - 50px);
+  padding: 20px 20px 6px;
+  box-shadow: 7px -11px 12px 9px #00000063;
+  border-radius: 5px;
+  backdrop-filter: blur(10px); /*enleve le rendu*/
+}
+h1 {
+  margin-bottom: 24px;
+  text-align: center;
+  color: var(--color5);
+  position: relative;
+}
+/*  Animation 1 :barre de separation sasn utilise des hr */
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  background: var(--color5);
+  height: 1px;
+  width: 100%;
+  animation: h1anim 5s ease-in-out forwards; /*appeler une animation*/
+  transform-origin: center;
+}
+/*creer l'animation*/
+@keyframes h1anim {
+  100% {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+/*Insertion de l'etoile */
+.card:before {
+  content: "\02730";
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 2.4rem;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+.polygon-container {
+  filter: drop-shadow(-1px 9px 1px var(--color5));
+  /* mettre le polygonge au center car le parent grid-container est en grid */
+  place-self: center left;
+}
+.polygon {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  height: 70px;
+  background-image: linear-gradient(to top, #f5e509ad 0%, #ffb199 100%);
+  height: 100px;
+  width: 100px;
+}
+.polygon::after {
+  content: "message";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* centrer le texte messsage  */
+  transform: translate(-50%, -50%) rotate(344deg);
+  color: var(--color5);
+  background: var(--color3);
+}
+p {
+  line-height: 36px;
+  text-align: justify;
+  display: -webkit-box;
+  /* permet de limite le texte sur 4 ligne 
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden; */
+}
+/* styliser un paragraphe */
+p::selection {
+  background: var(--color2);
+  color: var(--color5);
+}
+
+/* les checkbox */
+
+.checkbox-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0 30px;
+  perspective: 40px;
+}
+input[type="checkbox"] {
+  display: none; /*cache le checkbox*/
+}
+input[type="checkbox"]:checked + label {
+  background: violet;
+  transform: scale(1.1);
+  filter: brightness(150%);
+}
+
+label {
+  cursor: pointer;
+  border: 1px solid var(--color1);
+  background: var(--color3);
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.1s;
+  user-select: none; /*bloque la selection du texte dans le bouton*/
+}
+/*  Animation 2 :faire un effet sur le label */
+label:first-of-type:hover {
+  /* 2 appele l'animation */
+  animation: label1 1s infinite linear;
+}
+/*1 creer l'animation*/
+@keyframes label1 {
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+label:nth-child(4):hover {
+  animation: label2 3s infinite linear;
+}
+/* animation 3 :3d Ne pas oublier la perspective sur le parent .checkbox-container */
+@keyframes label2 {
+  33% {
+    transform: translateZ(30px);
+  }
+  66% {
+    transform: translateZ(-40px);
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}
+.e-mail {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.e-mail input {
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: 3px solid transparent;
+  transition: 0.3s;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color5);
+  /*responsive sans media query*/
+  min-width: 180px;
+  width: 35%;
+  max-width: 300px;
+}
+input[type="text"]:focus {
+  background: transparent;
+  border: 3px solid violet;
+  border-radius: 250px;
+}
+
+input[type="text"]::placeholder {
+  color: var(--color5);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+button {
+  cursor: pointer;
+  background: var(--color5);
+  border: none;
+  font-size: 1.3rem;
+  padding: 10px 20px;
+  border-radius: 150px;
+  padding: 10px;
+  margin: 30px auto;
+  display: block;
+  transition: 0.2s;
+}
+button:hover {
+  letter-spacing: 8px;
+  transition: 0.2s;
+}
+button:active {
+  transform: scale(1.2);
+  background: cyan;
+}
+button:hover + a,
+a:hover {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+a {
+  color: var(--color2);
+  display: block;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(20px); /*fait un effet sur le a*/
+  transition: 0.3s;
+}
+a:visited {
+  color: var(--color5);
+}
+img {
+  height: 40px;
+  position: absolute;
+  filter: drop-shadow(0px 6px 3px rgba(0, 255, 255, 0.6));
+  z-index: -1;
+  animation: spaceship 60s infinite linear;
+}
+@keyframes spaceship {
+  0% {
+    top : 2%;
+    left: 2%;
+    transform: rotate(0);
+  }
+  10% {
+    top : 6%;
+    left: 30%;
+    transform: rotate();
+  }
+  20% {
+    top : 2%;
+    left: 60%;
+    transform: rotate();
+  }
+  30% {
+    top : 2%;
+    left: 80%;
+    transform: rotate();
+  }
+  40% {
+    top : 2%;
+    left: 90%;
+    transform: rotate();
+  }
+  
+  50% {
+    top : 2%;
+    left: 90%;
+    transform: rotate(0);
+  } 
+  60% {
+    top : 2%;
+    left: 95%;
+    transform: rotate(360deg);
+  } 
+  70% {
+    top : 12%;
+    left: 80%;
+    transform: rotate(0);
+  }
+  80% {
+    top : 2%;
+    left: 60%;
+    transform: rotate(0);
+  }
+  90% {
+    top : 2%;
+    left: 30%;
+    transform: rotate(0);
+  }
+  100% {
+    top : 2%;
+    left: 20%;
+    transform: rotate(0);
+  }
+}

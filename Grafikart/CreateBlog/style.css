@@ -1,0 +1,154 @@
+* {
+    /* Permet au largeur de prendre en compte les paddings et bordure  */
+    box-sizing: border-box;
+}
+body, html{
+   font-size: 16px;
+   color: rgba(0, 0, 0, .87);/*opacité .87*/
+   font-family: "Montserrat",sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+    background: #fbfbfb;
+}
+/*Header*/
+.topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    padding: 30px;
+    z-index: 3;
+    box-shadow: 0 4px 40px rgba(97, 49, 49, 0.5); 
+
+}
+.topbar nav{
+    float: left;
+}
+.topbar nav a{
+    color: #9F9F9F;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 53px;
+}
+.topbar nav a:hover, .topbar nav a.active{
+   color: #000; 
+}
+.topbar .social{
+    float: right;/*position fbk et twitter a droite*/
+}
+.social a{
+    padding : 0 12px;
+    opacity: .5;/*fait un effet d trasnparence*/
+}
+.social a:hover{
+    opacity: 1;/*permet de remettre l'opacity quand on passe la souris*/
+}
+.banniere{
+    height: 427px;
+    background : no-repeat center center url("img/header.jpg");
+}
+/*Main*/
+.main{
+    float: left;
+    /* height: 200px; */
+    background: #FFFFFF;
+    width: calc(100% - 375px); /*60%;*/
+    box-shadow: 0 4px 40px rgba(0, 0, 0, .05); /*effet d'ombre*/
+    position: relative;
+    z-index: 2;
+}
+/*tout ce qui concerne le sidebar*/
+.sideBar{
+    float: right;
+    /* background: ##9F9F9F; */
+    width: 375px;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+}
+.sideBar-title{
+    font-size: 30px;
+    color: #000;
+    margin: 12px 0;
+}
+.sideBar-title:first-child{
+    margin-top: 0;
+}
+.sideBar a{
+    color: #9F9F9F;
+    text-decoration: none;
+}
+.sideBar a:hover{
+    text-decoration: underline;
+}
+.sideBar ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.sideBar li{
+    padding: 6px 0;
+}
+.sideBar li:first-child{
+    padding-top: 0;
+}
+.sideBar li:last-child{
+    padding-bottom: 0;
+}
+.sideBar hr{
+    border: none;
+    background: #c4c4c4;
+    height: 1px;
+    margin: 50px;
+}
+/* .article-droite{
+    float: right;
+}
+.article-gauche{
+    float: left;
+} */
+.article{
+    position: relative;
+    /* overflow: hidden; */
+    margin: 50px;
+    padding-left: 333px;
+    min-height: 203px;
+    max-width: 940px;
+}
+.article-img{
+    position: absolute;
+    left: 0;
+    top: 0;
+ /* float: left; */
+    width: 308px;
+    margin-right: 25px;
+}
+.article a {
+    color: inherit;
+    text-decoration: none;
+}
+.article a:hover{
+    text-decoration: underline;
+}
+.article-img img{
+    width: 100%;
+    height: auto;
+}
+.article-date{
+    font-weight: 300px;
+    color: rgba(0, 0, 0, .6);
+    margin-bottom: 5px;
+}
+.article-title{
+    font-size: 2.25rem;
+    line-height: 1.1;
+    font-family: "Cardo",serif;
+    margin: 0 0 15px 0;
+}
+/*Footer*/
+.footer{
+    clear: both;
+}

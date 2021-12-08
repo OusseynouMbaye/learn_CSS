@@ -1,0 +1,43 @@
+
+*{
+    box-sizing: border-box;
+}
+.flex{
+    display:flex;
+    /* flex-direction: row-reverse; */
+     justify-content:space-between;
+     flex-wrap: wrap;
+    align-items: center; 
+}
+.flex button{
+    width: 100px;
+    border: solid 1px #000;
+    background-color: red;
+}
+.clearFloat{
+    overflow: hidden;
+}
+
+.alignLeft{
+    float: left;
+    width: 70px;
+}
+.imgRight{
+    margin-right: 15px;
+}
+.imgLeft{
+    margin-left: 75px;
+}
+ p{
+    text-align: justify;
+    padding: 10px;
+    line-height: 1.4;
+   
+}
+
+
+.alignRight{
+    float: right;
+    width: 70px;
+}
+

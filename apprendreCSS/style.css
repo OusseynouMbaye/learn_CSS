@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:wght@500&display=swap');
+
+@font-face {
+    font-family: "font-1";
+    src: url(./assets/NotoSansJP-Medium.otf);
+}
+* {
+    margin: 0;
+    padding: 0;
+     /*box-sizing: border-box;
+     border :2px red solid; */
+}
+html, body{
+    background : url("./img/swimmer.jpg") center fixed no-repeat;
+    height: 100vh;
+    font-family: 'font-1', sans-serif;
+   
+}
+
+h1{
+    text-transform:uppercase ; /*La propriété text-transform gère les différences liées aux langues, par exemple */
+    letter-spacing: 20px; /*mettre des espaces entre les textes*/
+    font-size: 2.5rem; /*font, titre,texte, police les mettre en rem 1rem= de base*/
+    color: rgb(74, 74, 236);
+    text-shadow: 7px 12px 4px rgba(124, 199, 199, 0.8);/*faire un effet d'ombre sur le text*/
+    text-align: center;  
+    font-family: 'Playfair Display', serif;
+    margin : 20px ;
+    
+}
+/********container et flexbox *****/
+.container,.flexbox,.grid {
+    background: rosybrown;
+    width: 85%; /*pour les largeurs use les %*/
+    min-height: 10px; /* pour les height en px*/
+    margin: 10px auto; /*pour centrer une boite*/ 
+    padding: 20px ;
+    border-radius: 20px;
+    border: 2px solid;
+    box-shadow: 5px -7px 3px 1px greenyellow; /*effetd d'ombre*/
+}
+/******** Positionning *****/
+.positioning {
+    border : 2px dotted;
+    padding: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+h2{
+      text-align: center;
+}
+.positioning h2{
+    text-align: left;
+
+}
+
+#circle{
+    position: absolute;/* a besoin d'un parent sion il se placera n'importe ou..c'est pour cela j'ai utilisé le position relative dans positionning*/
+    top: -10px;
+    right: 100px;
+    background: cornflowerblue;
+    text-align: center;
+    height: 50px;
+    width: 60px;
+    padding: 20px;
+    border-radius: 50%; 
+    box-shadow: 0 2px 12px 5px rgba(241, 238, 6, 0.411);
+    z-index: 2; /* pour mettre le cercle au dessus du carre si le chiffre est superieur*/
+  
+}
+#rectangle{
+    height: 15px;
+    width: 85px; /*25% c'est pa rapport a son parent*/
+    background: rgba(238, 59, 5, 0.925);
+    padding: 20px;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform:translate(-50%, -5%);/*pour le centrer*/
+    z-index: 1;
+}
+/******** Flexbox *****/
+/* .flexbox{
+
+} */
+ul{
+    display: flex;
+    justify-content: space-between;
+}
+li{
+    list-style: none;
+    font-size: 0.7rem;
+    height: 100px;
+    width: 160px;
+    background: turquoise;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+li a{
+    text-decoration: none;
+    color: tomato;
+    
+}
+li a:hover{
+    text-decoration: underline overline #fffb28;
+    color: yellow;
+}
+/******** Grid *****/
+.grid-container{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 20px;
+}
+.img {
+    text-align: center;
+}
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "i1 i2" 
+    "ta ta" 
+    "bt bt";
+}
+input, textarea{
+    margin: 5px;
+    height: 45px;
+    border: 2px ridge rgba(153, 50, 204, 0.226);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-family: "font-1";
+}
+#fisrtName{
+    grid-area:  i1;
+}
+#surName{
+    grid-area:  i2;
+}
+textarea {
+    grid-area: ta;
+    resize: none;
+}
+input[type="submit"]{
+    grid-area: bt;
+    cursor: pointer; /*permet d'afficher le curser sur le bouton*/
+    background: rgb(0, 204, 255);
+    transition: 0.4s;
+}
+input[type="submit"]:hover{
+    background: #6d96ec;
+    cursor: pointer; /*permet d'afficher le curser sur le bouton*/
+}
+
+/******** Responsive *****/
+@media screen and (max-width : 1000px) {
+    .grid-container{
+        display: block;
+    }
+   
+}
+@media screen and (max-width : 800px) {
+    form {
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 1fr 1fr 1f;
+        grid-template-areas: 
+        "i1 " "i2" 
+        "ta" 
+        "bt";
+    }
+}
+
+
